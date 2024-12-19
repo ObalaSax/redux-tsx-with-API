@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import myReducer from "./DataDistplaySlice";
-
+import ProductData from "./DataDistplaySlice";
 export const myStore = configureStore({
   reducer: {
-    niceSlice: myReducer,
+    products: ProductData,
   },
 });
 
-export type RootStore = ReturnType<typeof myStore.getState>;
-export type AppDispatch = typeof myStore.dispatch;
+export type RootState = typeof myStore.getState;

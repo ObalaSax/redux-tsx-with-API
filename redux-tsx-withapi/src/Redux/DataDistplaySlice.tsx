@@ -1,31 +1,27 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export interface MyNumber {
-  nambari: number;
+export interface ProductData {
+  id: number;
+  title: string;
+  price: number;
 }
 
-const initialState: MyNumber = {
-  nambari: 0,
+const initialState: ProductData = {
+  id: 0,
+  title: "No Data",
+  price: 0,
 };
 
-export const mySlice = createSlice({
-  name: "niceSlice",
+// This is my Reducers
+export const productsSlices = createSlice({
+  name: "prductsSlice",
   initialState,
   reducers: {
-    addition: (state) => {
-      state.nambari += 1;
-    },
-    additionPro: (state, action: PayloadAction<number>) => {
-      state.nambari += action.payload;
-    },
-    minus: (state) => {
-      state.nambari -= 1;
-    },
-    minusPro: (state, action: PayloadAction<number>) => {
-      state.nambari -= action.payload;
+    priceAdd: (state) => {
+      state.id += 1;
     },
   },
 });
 
-export const { addition, additionPro, minus, minusPro } = mySlice.actions;
-export default mySlice.reducer;
+export const { priceAdd } = productsSlices.actions;
+export default productsSlices.reducer;

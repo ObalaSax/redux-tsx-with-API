@@ -1,18 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "./store";
-import { addition, additionPro, minus, minusPro } from "./DataDistplaySlice";
+//import { useGetAllProducts } from "./productsApiSlice";
+
+import { useDispatch } from "react-redux";
+import { priceAdd } from "./DataDistplaySlice";
 
 function ShowData() {
-  const mySelector = useSelector((state: RootStore) => state.niceSlice.nambari);
-  const myDispatch = useDispatch();
+  //const data = useGetAllProducts();
+  //console.log(data);
+
+  const dispatch = useDispatch();
   return (
     <div>
-      <button onClick={() => myDispatch(addition())}>Add</button>
-      <button onClick={() => myDispatch(additionPro(20))}>Add Pro</button>
-
-      <h1>{mySelector}</h1>
-      <button onClick={() => myDispatch(minus())}>Subtract</button>
-      <button onClick={() => myDispatch(minusPro(10))}>Subtract Pro</button>
+      <h1>Show Data</h1>
+      <button onClick={() => dispatch(priceAdd())}>Add</button>
     </div>
   );
 }
